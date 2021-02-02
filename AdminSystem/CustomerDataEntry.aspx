@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-    This is a test of the merge
+    Testing merge
     <form id="form1" runat="server">
         <div>
         </div>
