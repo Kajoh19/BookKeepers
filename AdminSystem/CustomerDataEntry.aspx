@@ -7,10 +7,33 @@
     <title></title>
 </head>
 <body>
-    Testing merge
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="lblCustomerId" runat="server" Text="Customer Number" width="75px"></asp:Label>
+            <asp:TextBox ID="txtCustomerId" runat="server"></asp:TextBox>
         </div>
+        <asp:Label ID="lblFullName" runat="server" Text="Full Name" width="75px"></asp:Label>
+        <asp:TextBox ID="txtFullName" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblEmail" runat="server" Text="Email" width="75px"></asp:Label>
+            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblUserPassword" runat="server" Text="Password" width="75px"></asp:Label>
+        <asp:TextBox ID="txtUserPassword" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblAddress" runat="server" Text="Address" width="75px"></asp:Label>
+            <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblDateAdded" runat="server" Text="Date Added"></asp:Label>
+        <asp:TextBox ID="txtDateAdded" runat="server"></asp:TextBox>
+        <p>
+            <asp:CheckBox ID="chkActive" runat="server" Text="Active" />
+        </p>
+        <asp:Label ID="lblError" runat="server"></asp:Label>
+        <p>
+            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+        </p>
     </form>
 </body>
 </html>

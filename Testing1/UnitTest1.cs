@@ -51,6 +51,15 @@ namespace Testing1
         }
 
         [TestMethod]
+        public void AddressOK()
+        {
+            clsCustomer ACustomer = new clsCustomer();
+            string TestData = "A random address";
+            ACustomer.Address = TestData;
+            Assert.AreEqual(ACustomer.Address, TestData);
+        }
+
+        [TestMethod]
         public void UserPasswordPropertyOK()
         {
             clsCustomer ACustomer = new clsCustomer();
