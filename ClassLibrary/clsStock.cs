@@ -13,5 +13,7 @@ namespace ClassLibrary
         public int Quantity { get; set; }
 
         public double Price { get; set; }
+
+        public int Id { get; set; }
     }
 }
