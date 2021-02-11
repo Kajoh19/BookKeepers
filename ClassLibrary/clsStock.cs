@@ -4,16 +4,88 @@ namespace ClassLibrary
 {
     public class clsStock
     {
-        public string Description { get; set; }
+        //private data member for the book Id property
+        private Int32 mBookId;
+        private DateTime mDateAdded;
+        private Boolean mAvailable;
+        private String mBookDescription;
+        private Int32 mQuantityAvailable;
+        private Double mPrice;
 
-        public bool Available { get; set; }
 
-        public DateTime DateAdded { get; set; }
+        public string Description { get
+            {
+                return mBookDescription;
+            } set
+            {
+                mBookDescription = value;
+            }
+        }
 
-        public int Quantity { get; set; }
+        public bool Available { get
+            {
+                return mAvailable;
+            }
 
-        public double Price { get; set; }
+            set
+            {
+                mAvailable = value;
+            }
 
-        public int Id { get; set; }
+        }
+
+        public DateTime DateAdded { get
+            {
+                return mDateAdded;
+            }
+
+            set
+            {
+                mDateAdded = value;
+            }
+        }
+
+        public int Quantity { get
+            {
+                return mQuantityAvailable;
+            }
+
+            set
+            {
+                mQuantityAvailable = value;
+            }
+        }
+
+        public double Price { get
+            {
+                return mPrice;
+            }
+            set
+            {
+                mPrice = value;
+            }
+            }
+
+        public int BookId {
+            get
+            {
+                return mBookId;
+            }
+            set
+            {
+                mBookId = value;
+            }
+            }
+
+        public bool Find(int bookId)
+        {
+            mBookId = 21;
+            mDateAdded = Convert.ToDateTime("16/09/2010");
+            mAvailable = true;
+            mBookDescription = "Jungle Book";
+            mQuantityAvailable = 1;
+            mPrice = 1.99;
+            return true;
+        }
     }
 }
