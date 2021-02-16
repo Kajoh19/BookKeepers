@@ -13,7 +13,7 @@ public partial class _1Viewer : System.Web.UI.Page
         clsStock ABook = new clsStock();
         ABook = (clsStock)Session["ABook"];
         Response.Write(ABook.Description + "\n\n");
-        Response.Write(ABook.Id + "\n\n");
+        Response.Write(ABook.BookId + "\n\n");
         Response.Write(ABook.Price + "\n\n");
         Response.Write(ABook.Quantity + "\n\n");
         Response.Write(ABook.DateAdded + "\n\n");
