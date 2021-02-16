@@ -18,7 +18,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsStock
         clsStock ABook = new clsStock();
         ABook.Description = txtBookDescription.Text;
-        ABook.Id = Convert.ToInt32(txtBookId.Text);
+        ABook.BookId = Convert.ToInt32(txtBookId.Text);
         ABook.Price = Convert.ToDouble(txtPrice.Text);
         ABook.Quantity = Convert.ToInt32(txtQuantity.Text);
         ABook.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
