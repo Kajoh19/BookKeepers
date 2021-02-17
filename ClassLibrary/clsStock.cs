@@ -79,13 +79,23 @@ namespace ClassLibrary
 
         public bool Find(int bookId)
         {
-            mBookId = 21;
-            mDateAdded = Convert.ToDateTime("16/09/2010");
-            mAvailable = true;
-            mBookDescription = "Jungle Book";
-            mQuantityAvailable = 1;
-            mPrice = 1.99;
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookId", BookId);
+            DB.Execute("sproc_tblStock_FilterByBookId");
+            if (DB.Count == 1)
+            {
+                mBookId = 21;
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["Available"]);
+                mBookDescription = Convert.ToString(DB.DataTable.Rows[0]["BookDescription"]);
+                mQuantityAvailable = Convert.ToInt32(DB.DataTable.Rows[0]["QuantityAvailable"]);
+                mPrice = Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public string Valid(string bookDescription, string dateAdded, string quantityAvailable, string price)

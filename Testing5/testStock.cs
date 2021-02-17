@@ -83,8 +83,8 @@ namespace Testing5
         {
             clsStock ABook = new clsStock();
             Boolean Found = false;
-            Int32 BookId = 21;
-            Found = ABook.Find(BookId);
+            Int32 BookId = 9;
+            Found = ABook.Find(bookId: BookId);
             Assert.IsTrue(Found);
         }
 
@@ -94,10 +94,10 @@ namespace Testing5
             clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 BookId = 21;
+            Int32 BookId = 9;
             Found = ABook.Find(BookId);
 
-            if (ABook.BookId != 21)
+            if (ABook.BookId != 9)
             {
                 OK = false;
             }
@@ -110,9 +110,9 @@ namespace Testing5
             clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 BookId = 21;
+            Int32 BookId = 9;
             Found = ABook.Find(BookId);
-            if(ABook.DateAdded != Convert.ToDateTime("16/09/2010"))
+            if(ABook.DateAdded != Convert.ToDateTime("01/01/2011"))
             {
                 OK = false;
             }
@@ -125,7 +125,7 @@ namespace Testing5
             clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 BookId = 21;
+            Int32 BookId = 9;
             Found = ABook.Find(BookId);
             if (ABook.Available != true)
             {
@@ -140,9 +140,9 @@ namespace Testing5
             clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 BookId = 21;
+            Int32 BookId = 9;
             Found = ABook.Find(BookId);
-            if (ABook.Description != "Jungle Book")
+            if (ABook.Description != "Test Book")
             {
                 OK = false;
             }
@@ -154,7 +154,7 @@ namespace Testing5
             clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 BookId = 21;
+            Int32 BookId = 9;
             Found = ABook.Find(BookId);
             if(ABook.Quantity != 1)
             {
@@ -169,9 +169,9 @@ namespace Testing5
             clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 BookId = 21;
+            Int32 BookId = 9;
             Found = ABook.Find(BookId);
-            if(ABook.Price != 1.99)
+            if(ABook.Price != 10.01)
             {
                 OK = false;
             }
