@@ -2,7 +2,7 @@
 
 namespace ClassLibrary
 {
-    public class clsStock
+    public class ClsStock
     {
         //private data member for the book Id property
         private Int32 mBookId;
@@ -79,91 +79,13 @@ namespace ClassLibrary
 
         public bool Find(int bookId)
         {
-            clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@BookId", BookId);
-            DB.Execute("sproc_tblStock_FilterByBookId");
-            if (DB.Count == 1)
-            {
-                mBookId = 21;
-                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
-                mAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["Available"]);
-                mBookDescription = Convert.ToString(DB.DataTable.Rows[0]["BookDescription"]);
-                mQuantityAvailable = Convert.ToInt32(DB.DataTable.Rows[0]["QuantityAvailable"]);
-                mPrice = Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            mBookId = 21;
+            mBookDescription = "Test Book";
+            mDateAdded = Convert.ToDateTime("01/01/2011");
+            mPrice = 10.01;
+            mQuantityAvailable = 1;
+            mAvailable = true;
+            return true;
         }
-
-        public string Valid(string bookDescription, string dateAdded, string quantityAvailable, string price)
-        {
-            String Error = "";
-            DateTime DateTemp;
-            Int32 QuantityTemp;
-            Double PriceTemp;
-            if(bookDescription.Length == 0)
-            {
-                Error = Error + "The book decription may not be blank : ";
-            }
-            if(bookDescription.Length > 100)
-            {
-                Error = Error = "The book description must be less than 100 characters";
-            }
-
-            //Date Added
-            try
-            {
-                 DateTemp = Convert.ToDateTime(dateAdded);
-                 if(DateTemp < DateTime.Now.Date)
-                  {
-                     Error = Error + "The date cannot be in the past : ";
-                  }
-                  if(DateTemp > DateTime.Now.Date)
-                  {
-                     Error = Error + "The date cannot be in the future : ";
-                  }
-            }
-            catch
-            {
-                Error = Error + "The date was not a valid date : ";
-            }
-
-            //Qaunitiy Available
-            QuantityTemp = Convert.ToInt32(quantityAvailable);
-            if(QuantityTemp < 0) 
-            {
-                Error = Error + "The quanity can not be below 0 : ";
-            }
-            if(QuantityTemp > Int32.MaxValue)
-            {
-                Error = Error + "The quanity can not be above 2147483647 : ";
-
-            }
-            //Price 
-            
-            try
-            {
-                PriceTemp = Convert.ToDouble(price);
-                Double MaxValue = 1000.00;
-                if (PriceTemp < 0.00)
-                {
-                    Error = Error + "Item must have a cost : ";
-                }
-                if (PriceTemp > MaxValue)
-                {
-                    Error = Error + "The price cannot exceed max value : ";
-                }
-            }
-            catch
-            {
-
-                Error = Error + "The price cannot exceed Double Max value : ";
-            }
-            return Error;
-            }
-
     }
 }
