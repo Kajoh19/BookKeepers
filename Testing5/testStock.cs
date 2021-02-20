@@ -11,14 +11,14 @@ namespace Testing5
         [TestMethod]
         public void InstanceOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Assert.IsNotNull(ABook);
         }
 
         [TestMethod]
         public void DescriptionOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             string TestData = "Jungle book";
             ABook.Description = TestData;
             Assert.IsNotNull(ABook);
@@ -29,7 +29,7 @@ namespace Testing5
         [TestMethod]
         public void AvailabilityOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean TestData = true;
             ABook.Available = TestData;
             Assert.AreEqual(ABook.Available, TestData);
@@ -39,7 +39,7 @@ namespace Testing5
         [TestMethod]
         public void DateOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             DateTime TestData = DateTime.Now.Date;
             ABook.DateAdded = TestData;
             Assert.AreEqual(ABook.DateAdded, TestData);
@@ -48,7 +48,7 @@ namespace Testing5
         [TestMethod]
         public void QuanityAvailableOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Int32 TestData = 1;
             ABook.Quantity = TestData;
             Assert.AreEqual(ABook.Quantity, TestData);
@@ -57,7 +57,7 @@ namespace Testing5
         [TestMethod]
         public void PriceOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Double TestData = 1.0;
             ABook.Price = TestData;
             Assert.AreEqual(ABook.Price, TestData);
@@ -66,7 +66,7 @@ namespace Testing5
         [TestMethod]
         public void BookIdOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Int32 TestData = 1;
             ABook.BookId = TestData;
             Assert.AreEqual(ABook.BookId, TestData);
@@ -75,17 +75,17 @@ namespace Testing5
         [TestMethod]
         public void FindMethodOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Int32 BookId = 21;
-            Found = ABook.Find(bookId: BookId);
+            Found = ABook.Find(BookId);
             Assert.IsTrue(Found);
         }
 
         [TestMethod]
         public void TestBookIdFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;
@@ -101,7 +101,7 @@ namespace Testing5
         [TestMethod]
         public void TestDateAddedFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;
@@ -116,7 +116,7 @@ namespace Testing5
         [TestMethod]
         public void TestAvailableFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;
@@ -131,12 +131,12 @@ namespace Testing5
         [TestMethod]
         public void TestBookDescriptionFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;
             Found = ABook.Find(BookId);
-            if (ABook.Description != "Test Book")
+            if (ABook.Description != "TestBook")
             {
                 OK = false;
             }
@@ -145,7 +145,7 @@ namespace Testing5
         [TestMethod]
         public void TestQuanityAvailableFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;
@@ -160,7 +160,7 @@ namespace Testing5
         [TestMethod] 
         public void TestPriceFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;

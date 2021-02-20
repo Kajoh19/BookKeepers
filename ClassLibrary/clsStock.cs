@@ -2,9 +2,9 @@
 
 namespace ClassLibrary
 {
-    public class ClsStock
+    public class clsStock
     {
-        //private data member for the book Id property
+        //private
         private Int32 mBookId;
         private DateTime mDateAdded;
         private Boolean mAvailable;
@@ -77,15 +77,26 @@ namespace ClassLibrary
             }
             }
 
-        public bool Find(int bookId)
+        public bool Find(int BookId)
         {
-            mBookId = 21;
-            mBookDescription = "Test Book";
-            mDateAdded = Convert.ToDateTime("01/01/2011");
-            mPrice = 10.01;
-            mQuantityAvailable = 1;
-            mAvailable = true;
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookId", BookId);
+            DB.Execute("sproc_tblStock_FilterByBookId");
+
+            if (DB.Count == 1)
+            {
+                mBookId = Convert.ToInt32(DB.DataTable.Rows[0]["BookId"]);
+                mBookDescription = Convert.ToString(DB.DataTable.Rows[0]["BookDescription"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mPrice = Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
+                mQuantityAvailable = Convert.ToInt32(DB.DataTable.Rows[0]["QuantityAvailable"]);
+                mAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["Available"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
