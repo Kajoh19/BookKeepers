@@ -4,6 +4,7 @@ namespace ClassLibrary
 {
     public class clsStock
     {
+        //private
         private Int32 mBookId;
         private DateTime mDateAdded;
         private Boolean mAvailable;
