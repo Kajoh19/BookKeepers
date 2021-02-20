@@ -4,7 +4,6 @@ namespace ClassLibrary
 {
     public class clsStock
     {
-        //private data member for the book Id property
         private Int32 mBookId;
         private DateTime mDateAdded;
         private Boolean mAvailable;
