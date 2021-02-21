@@ -13,11 +13,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtBookId" runat="server"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnFind" runat="server" OnClick="Button1_Click" Text="Find" />
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+            <br />
             <br />
         </div>
         <asp:Label ID="lblBookDescription" runat="server" Text="Book Description (Name and Author)"></asp:Label>
-        <asp:TextBox ID="txtBookDescription" runat="server" Height="16px" Width="115px"></asp:TextBox>
+        <asp:TextBox ID="txtBookDescription" runat="server" Height="16px" Width="119px"></asp:TextBox>
         <p>
             <asp:Label ID="lblPrice" runat="server" Text="Price" width="230px"></asp:Label>
             <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
