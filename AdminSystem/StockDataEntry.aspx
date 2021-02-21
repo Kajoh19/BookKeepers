@@ -12,6 +12,8 @@
             <asp:Label ID="lblBookId" runat="server" Text="BookId"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtBookId" runat="server"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnFind" runat="server" OnClick="Button1_Click" Text="Find" />
             <br />
         </div>
         <asp:Label ID="lblBookDescription" runat="server" Text="Book Description (Name and Author)"></asp:Label>
