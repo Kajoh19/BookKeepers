@@ -26,4 +26,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["ABook"] = ABook;
         Response.Redirect("StockViewer.aspx");
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+
+    }
 }
