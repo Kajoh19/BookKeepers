@@ -17,7 +17,7 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(ACustomer.Email + "\n\n");
         Response.Write(ACustomer.UserPassword + "\n\n");
         Response.Write(ACustomer.DateAdded + "\n\n");
-        Response.Write(ACustomer.Height + "\n\n");
+        Response.Write(ACustomer.Budget + "\n\n");
         Response.Write(ACustomer.Active + "\n\n");
     }
 }
