@@ -62,12 +62,12 @@ namespace Testing1
         }
 
         [TestMethod]
-        public void HeightPropertyOK()
+        public void BudgetPropertyOK()
         {
             clsCustomer ACustomer = new clsCustomer();
             decimal TestData = 175.55m;
-            ACustomer.Height = TestData;
-            Assert.AreEqual(ACustomer.Height, TestData);
+            ACustomer.Budget = TestData;
+            Assert.AreEqual(ACustomer.Budget, TestData);
         }
 
         [TestMethod]
@@ -75,7 +75,7 @@ namespace Testing1
         {
             clsCustomer ACustomer = new clsCustomer();
             Boolean Found = false;
-            Int32 CustomerId = 21;
+            Int32 CustomerId = 1;
             Found = ACustomer.Find(CustomerId);
             Assert.IsTrue(Found);
         }
@@ -86,9 +86,9 @@ namespace Testing1
             clsCustomer ACustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerId = 21;
+            Int32 CustomerId = 1;
             Found = ACustomer.Find(CustomerId);
-            if (ACustomer.CustomerId != 21)
+            if (ACustomer.CustomerId != 1)
             {
                 OK = false;
             }
@@ -102,9 +102,9 @@ namespace Testing1
             clsCustomer ACustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerId = 21;
+            Int32 CustomerId = 1;
             Found = ACustomer.Find(CustomerId);
-            if (ACustomer.Email != "kk123@gmail.com")
+            if (ACustomer.Email != "jk123@gmail.com")
             {
                 OK = false;
             }
@@ -117,9 +117,9 @@ namespace Testing1
             clsCustomer ACustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerId = 21;
+            Int32 CustomerId = 1;
             Found = ACustomer.Find(CustomerId);
-            if (ACustomer.UserPassword != "kk123!")
+            if (ACustomer.UserPassword != "jk123!")
             {
                 OK = false;
             }
@@ -127,14 +127,14 @@ namespace Testing1
         }
 
         [TestMethod]
-        public void TestHeightFound()
+        public void TestBudgetFound()
         {
             clsCustomer ACustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerId = 21;
+            Int32 CustomerId = 1;
             Found = ACustomer.Find(CustomerId);
-            if (ACustomer.Height != Convert.ToDecimal("175.54"))
+            if (ACustomer.Budget != Convert.ToDecimal("175.50"))
             {
                 OK = false;
             }
@@ -147,7 +147,7 @@ namespace Testing1
             clsCustomer ACustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerId = 21;
+            Int32 CustomerId = 1;
             Found = ACustomer.Find(CustomerId);
             if (ACustomer.Active != true)
             {
@@ -165,11 +165,11 @@ namespace Testing1
             
             Boolean OK = true;
             
-            Int32 AddressNo = 21;
+            Int32 AddressNo = 1;
             
             Found = AnAddress.Find(AddressNo);
             
-            if (AnAddress.DateAdded != Convert.ToDateTime("2/1/2001 12:34:32 PM"))
+            if (AnAddress.DateAdded != Convert.ToDateTime("22/02/2021"))
             {
                 OK = false;
             }

@@ -9,7 +9,7 @@ namespace ClassLibrary
         private DateTime mDateAdded;
         private String mEmail;
         private String mUserPassword;
-        private Decimal mHeight;
+        private Decimal mBudget;
 
         public Int32 CustomerId
         {
@@ -71,27 +71,38 @@ namespace ClassLibrary
             }
         }
 
-        public Decimal Height
+        public Decimal Budget
         {
             get
             {
-                return mHeight;
+                return mBudget;
             }
             set
             {
-                mHeight = value;
+                mBudget = value;
             }
         }
 
         public bool Find(int CustomerId)
         {
-            mCustomerId = 21;
-            mDateAdded = Convert.ToDateTime("2/1/2001 12:34:32 PM");
-            mEmail = "kk123@gmail.com";
-            mUserPassword = "kk123!";
-            mHeight = Convert.ToDecimal("175.54");
-            mActive = Convert.ToBoolean("true");
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustomerId", CustomerId);
+            DB.Execute("sproc_tblCustomer_FilterByCustomerId");
+            if (DB.Count == 1)
+            {
+                mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
+                mUserPassword = Convert.ToString(DB.DataTable.Rows[0]["UserPassword"]);
+                mBudget = Convert.ToDecimal(DB.DataTable.Rows[0]["Budget"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
