@@ -17,14 +17,14 @@ namespace Testing5
         [TestMethod]
         public void InstanceOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Assert.IsNotNull(ABook);
         }
 
         [TestMethod]
         public void DescriptionOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             string TestData = "Jungle book";
             ABook.Description = TestData;
             Assert.IsNotNull(ABook);
@@ -35,7 +35,7 @@ namespace Testing5
         [TestMethod]
         public void AvailabilityOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean TestData = true;
             ABook.Available = TestData;
             Assert.AreEqual(ABook.Available, TestData);
@@ -45,7 +45,7 @@ namespace Testing5
         [TestMethod]
         public void DateOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             DateTime TestData = DateTime.Now.Date;
             ABook.DateAdded = TestData;
             Assert.AreEqual(ABook.DateAdded, TestData);
@@ -54,7 +54,7 @@ namespace Testing5
         [TestMethod]
         public void QuanityAvailableOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Int32 TestData = 1;
             ABook.Quantity = TestData;
             Assert.AreEqual(ABook.Quantity, TestData);
@@ -63,7 +63,7 @@ namespace Testing5
         [TestMethod]
         public void PriceOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Double TestData = 1.0;
             ABook.Price = TestData;
             Assert.AreEqual(ABook.Price, TestData);
@@ -72,7 +72,7 @@ namespace Testing5
         [TestMethod]
         public void BookIdOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Int32 TestData = 1;
             ABook.BookId = TestData;
             Assert.AreEqual(ABook.BookId, TestData);
@@ -81,7 +81,7 @@ namespace Testing5
         [TestMethod]
         public void FindMethodOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Int32 BookId = 21;
             Found = ABook.Find(BookId);
@@ -91,7 +91,7 @@ namespace Testing5
         [TestMethod]
         public void TestBookIdFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;
@@ -107,7 +107,7 @@ namespace Testing5
         [TestMethod]
         public void TestDateAddedFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;
@@ -122,7 +122,7 @@ namespace Testing5
         [TestMethod]
         public void TestAvailableFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;
@@ -137,7 +137,7 @@ namespace Testing5
         [TestMethod]
         public void TestBookDescriptionFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;
@@ -151,7 +151,7 @@ namespace Testing5
         [TestMethod]
         public void TestQuanityAvailableFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;
@@ -166,7 +166,7 @@ namespace Testing5
         [TestMethod] 
         public void TestPriceFound()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
             Int32 BookId = 21;
@@ -182,7 +182,7 @@ namespace Testing5
         [TestMethod]
         public void ValidMethodOK()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
             Assert.AreEqual(Error, "");
@@ -191,7 +191,7 @@ namespace Testing5
         [TestMethod]
         public void BookDescriptionMinLessOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "";
             Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
@@ -200,7 +200,7 @@ namespace Testing5
         [TestMethod]
         public void BookDescriptionMin()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "a";
             Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
@@ -209,7 +209,7 @@ namespace Testing5
         [TestMethod]
         public void BookDescriptionMinPlusOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "aa";
             Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
@@ -218,7 +218,7 @@ namespace Testing5
         [TestMethod]
         public void BookDescriptionMaxLessOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
@@ -227,7 +227,7 @@ namespace Testing5
         [TestMethod]
         public void BookDescriptionMax()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
@@ -236,7 +236,7 @@ namespace Testing5
         [TestMethod]
         public void BookDescriptionMid()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
@@ -245,7 +245,7 @@ namespace Testing5
         [TestMethod]
         public void BookdescriptionMaxPlusOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
@@ -254,7 +254,7 @@ namespace Testing5
         [TestMethod]
         public void BookdescriptionExtremeMax()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "";
             BookDescription = BookDescription.PadRight(500, 'a');
@@ -265,7 +265,7 @@ namespace Testing5
         [TestMethod]
         public void DateAdddedExtremeMin()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             DateTime TestData;
             TestData = DateTime.Now.Date;
@@ -277,7 +277,7 @@ namespace Testing5
         [TestMethod]
         public void DateAdddedminLessOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             DateTime TestData;
             TestData = DateTime.Now.Date;
@@ -289,7 +289,7 @@ namespace Testing5
         [TestMethod]
         public void DateAdddedMin()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             DateTime TestData;
             TestData = DateTime.Now.Date;
@@ -300,7 +300,7 @@ namespace Testing5
         [TestMethod]
         public void DateAdddedMinPlusOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             DateTime TestData;
             TestData = DateTime.Now.Date;
@@ -312,7 +312,7 @@ namespace Testing5
         [TestMethod]
         public void DateAdddedExtremeMax()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             DateTime TestData;
             TestData = DateTime.Now.Date;
@@ -324,7 +324,7 @@ namespace Testing5
         [TestMethod]
         public void DateAdddedInvalidData()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             string DateAdded = "this is not a date!";
             Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
@@ -336,7 +336,7 @@ namespace Testing5
         [TestMethod]
         public void QauntityAvailableMinLessOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Int32 TestData;
             TestData = 0;
@@ -348,7 +348,7 @@ namespace Testing5
         [TestMethod]
         public void QauntityAvailableMin()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Int32 TestData;
             TestData = 0;
@@ -359,7 +359,7 @@ namespace Testing5
         [TestMethod]
         public void QauntityAvailableMinPlusOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Int32 TestData;
             TestData = 0;
@@ -371,7 +371,7 @@ namespace Testing5
         [TestMethod]
         public void QauntityAvailableMaxLessOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Int32 TestData;
             TestData = 2147483647;
@@ -383,7 +383,7 @@ namespace Testing5
         [TestMethod]
         public void QauntityAvailableMax()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Int32 TestData;
             TestData = 2147483647;
@@ -394,7 +394,7 @@ namespace Testing5
         [TestMethod]
         public void QauntityAvailableMaxPlusOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Int32 TestData;
             TestData = 2147483647;
@@ -406,7 +406,7 @@ namespace Testing5
         [TestMethod]
         public void QauntityAvailableMid()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Int32 TestData;
             TestData = Convert.ToInt32(1073741823.5);
@@ -419,7 +419,7 @@ namespace Testing5
         [TestMethod]
         public void PriceMinLessOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
             TestData = 0.00 - 1;
@@ -431,7 +431,7 @@ namespace Testing5
         [TestMethod]
         public void PriceMin()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
             TestData = 0.01;
@@ -442,7 +442,7 @@ namespace Testing5
         [TestMethod]
         public void PriceMinPlusOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
             TestData = 0.00 + 1;
@@ -453,7 +453,7 @@ namespace Testing5
         [TestMethod]
         public void PriceMaxLessOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
             TestData = MaxValue - 1;
@@ -464,7 +464,7 @@ namespace Testing5
         [TestMethod]
         public void PriceMax()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
             TestData = MaxValue;
@@ -475,7 +475,7 @@ namespace Testing5
         [TestMethod]
         public void PriceMaxPlusOne()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
             TestData = MaxValue + 1;
@@ -486,7 +486,7 @@ namespace Testing5
         [TestMethod]
         public void PriceMid()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
             TestData = MaxValue / 2;
@@ -497,7 +497,7 @@ namespace Testing5
         [TestMethod]
         public void PriceInvalidData()
         {
-            ClsStock ABook = new ClsStock();
+            clsStock ABook = new clsStock();
             String Error = "";
             string Price = "this is not a price!";
             Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);

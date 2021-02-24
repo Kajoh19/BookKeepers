@@ -2,7 +2,7 @@
 
 namespace ClassLibrary
 {
-    public class ClsStock
+    public class clsStock
     {
         //private
         private Int32 mBookId;

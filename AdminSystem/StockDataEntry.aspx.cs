@@ -17,14 +17,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsStock
         clsStock ABook = new clsStock();
-        ABook.Description = txtBookDescription.Text;
-        ABook.BookId = Convert.ToInt32(txtBookId.Text);
-        ABook.Price = Convert.ToDouble(txtPrice.Text);
-        ABook.Quantity = Convert.ToInt32(txtQuantity.Text);
-        ABook.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
-        ABook.Available = chkAvailable.Checked;
-        Session["ABook"] = ABook;
-        Response.Redirect("StockViewer.aspx");
+        string BookId = txtBookId.Text;
+        string BookDescription = txtBookDescription.Text;
+        string Price = txtPrice.Text;
+        string QuantityAvailable = txtQuantity.Text;
+        string DateAdded = txtDateAdded.Text;
+        string Error = "";
+        Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
+        if(Error == "")
+        {
+             ABook.Description = BookDescription;
+             ABook.BookId = Convert.ToInt32(BookId);
+             ABook.Price = Convert.ToDouble(Price);
+             ABook.Quantity = Convert.ToInt32(QuantityAvailable);
+             ABook.DateAdded = Convert.ToDateTime(DateAdded);
+             Session["ABook"] = ABook;
+             Response.Redirect("StockViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+   
     }
 
 
