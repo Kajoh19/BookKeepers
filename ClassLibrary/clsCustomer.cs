@@ -104,5 +104,59 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string email, string userPassword, string budget, string dateAdded)
+        {
+            String Error = "";
+            DateTime DateTemp;
+            Decimal BudgetTemp;
+            Decimal MaxBudget = 999.99m;
+            if (email.Length == 0)
+            {
+                Error = Error + "The email may not be blank : ";
+            }
+            if (email.Length > 30)
+            {
+                Error = Error = "The email must be less than 30 characters: ";
+            }
+            if(userPassword.Length == 0)
+            {
+                Error = Error + "The password may not be blank : ";
+            }
+            if (userPassword.Length < 8)
+            {
+                Error = Error + "The password cannot be less than 8 characters : ";
+            }
+            if (userPassword.Length >20)
+            {
+                Error = Error + "The password may not be more than 20 characters : ";
+            }
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "Invalid date : ";
+            }
+            BudgetTemp = Convert.ToDecimal(budget);
+            if (BudgetTemp < 0)
+            {
+                Error = Error + "The budget cannot be negative : ";
+            }
+            if (BudgetTemp > MaxBudget)
+            {
+                Error = Error + "The budget cannot be higher than 999.99 : ";
+            }
+            return Error;
+        }
     }
 }
