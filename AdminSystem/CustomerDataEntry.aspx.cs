@@ -17,16 +17,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsCustomer ACustomer = new clsCustomer();
-
-        ACustomer.CustomerId = Convert.ToInt32(txtCustomerId.Text);
-        ACustomer.Email = txtEmail.Text;
-        ACustomer.UserPassword = txtUserPassword.Text;
-        ACustomer.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
-        ACustomer.Budget = Convert.ToDecimal(txtBudget.Text);
-        ACustomer.Active = chkActive.Checked;
-
-        Session["ACustomer"] = ACustomer;
-        Response.Redirect("CustomerViewer.aspx");
+        string CustomerId = txtCustomerId.Text;
+        string Email = txtEmail.Text;
+        string UserPassword = txtUserPassword.Text;
+        string Budget = txtBudget.Text;
+        string DateAdded = txtDateAdded.Text;
+        string Error = "";
+        Error = ACustomer.Valid(Email, UserPassword, Budget, DateAdded);
+        if (Error == "")
+        {
+            ACustomer.CustomerId = Convert.ToInt32(CustomerId);
+            ACustomer.Email = Email;
+            ACustomer.UserPassword = UserPassword;
+            ACustomer.DateAdded = Convert.ToDateTime(DateAdded);
+            ACustomer.Budget = Convert.ToDecimal(Budget);
+            ACustomer.Active = chkActive.Checked;
+            Session["ACustomer"] = ACustomer;
+            Response.Redirect("CustomerViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
 

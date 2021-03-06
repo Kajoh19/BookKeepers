@@ -7,6 +7,12 @@ namespace Testing1
     [TestClass]
     public class testCustomer
     {
+            string Email = "someemail@gmail.com";
+            string UserPassword = "mypassword123";
+            string Budget = " 150.32";
+            string DateAdded = DateTime.Now.Date.ToString();
+        
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -68,6 +74,15 @@ namespace Testing1
             decimal TestData = 175.55m;
             ACustomer.Budget = TestData;
             Assert.AreEqual(ACustomer.Budget, TestData);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsCustomer ACustomer = new clsCustomer();
+            String Error = "";
+            Error = ACustomer.Valid(Email, UserPassword, Budget, DateAdded);
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
