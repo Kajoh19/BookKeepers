@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ClassLibrary
 {
@@ -110,7 +111,7 @@ namespace ClassLibrary
             String Error = "";
             DateTime DateTemp;
             Decimal BudgetTemp;
-            Decimal MaxBudget = 999.99m;
+            Decimal MaxValue = 999.99m;
             if (email.Length == 0)
             {
                 Error = Error + "The email may not be blank : ";
@@ -147,14 +148,22 @@ namespace ClassLibrary
             {
                 Error = Error + "Invalid date : ";
             }
-            BudgetTemp = Convert.ToDecimal(budget);
-            if (BudgetTemp < 0)
+            try
             {
-                Error = Error + "The budget cannot be negative : ";
+                BudgetTemp = Convert.ToDecimal(budget);
+                if (BudgetTemp <= 5.00m)
+                {
+                    Error = Error + "Budget must be higher than five : ";
+                }
+                if (BudgetTemp > MaxValue)
+                {
+                    Error = Error + "The budget cannot exceed max value : ";
+                }
             }
-            if (BudgetTemp > MaxBudget)
+            catch
             {
-                Error = Error + "The budget cannot be higher than 999.99 : ";
+
+                Error = Error + "The price has to be in the range of 5-999.99  : ";
             }
             return Error;
         }
