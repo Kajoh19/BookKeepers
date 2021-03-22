@@ -26,13 +26,16 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
         if(Error == "")
         {
-             ABook.Description = BookDescription;
-             ABook.BookId = Convert.ToInt32(BookId);
-             ABook.Price = Convert.ToDouble(Price);
-             ABook.Quantity = Convert.ToInt32(QuantityAvailable);
-             ABook.DateAdded = Convert.ToDateTime(DateAdded);
-             Session["ABook"] = ABook;
-             Response.Redirect("StockViewer.aspx");
+            ABook.Description = BookDescription;
+            ABook.BookId = Convert.ToInt32(BookId);
+            ABook.Price = Convert.ToDouble(Price);
+            ABook.Quantity = Convert.ToInt32(QuantityAvailable);
+            ABook.DateAdded = Convert.ToDateTime(DateAdded);
+            ABook.Available = chkAvailable.Checked;
+            clsStockCollection StockList = new clsStockCollection();
+            StockList.ThisStock = ABook;
+            StockList.Add();
+            Response.Redirect("StockList.aspx");
         }
         else
         {

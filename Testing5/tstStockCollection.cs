@@ -59,7 +59,7 @@ namespace Testing5
             //test to see that two values are the same
             Assert.AreEqual(AllStock.ThisStock, TestStock);
         }
-        
+
         [TestMethod]
         public void ListAndCountOK()
         {
@@ -84,6 +84,36 @@ namespace Testing5
             AllStock.StockList = TestList;
             //test to see that the two values are the same 
             Assert.AreEqual(AllStock.Count, TestList.Count);
+        }
+
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class
+            clsStockCollection AllStock = new clsStockCollection();
+            //create the item of test data
+            clsStock TestItem = new clsStock();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set the properties
+            TestItem.Available = true;
+            TestItem.BookId = 1;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.Description = "Mr and Mrs Twit, Roald Dahl";
+            TestItem.Price = 8.99;
+            TestItem.Quantity = 30;
+            //set this stock to the test data
+            AllStock.ThisStock = TestItem;
+            //add the record
+            PrimaryKey = AllStock.Add();
+            //set the primary key of the test data
+            TestItem.BookId = PrimaryKey;
+            //find the record
+            AllStock.ThisStock.Find(PrimaryKey);
+            //test to see that the two values are the same 
+            Assert.AreEqual(AllStock.ThisStock, TestItem);
+            //assign the data to the property
         }
     }
 }

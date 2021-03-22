@@ -252,7 +252,7 @@ namespace Testing5
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void BookdescriptionExtremeMax()
+        public void BookDescriptionExtremeMax()
         {
             clsStock ABook = new clsStock();
             String Error = "";
@@ -310,7 +310,7 @@ namespace Testing5
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void DateAdddedExtremeMax()
+        public void DateAddedExtremeMax()
         {
             clsStock ABook = new clsStock();
             String Error = "";
@@ -322,7 +322,7 @@ namespace Testing5
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void DateAdddedInvalidData()
+        public void DateAddedInvalidData()
         {
             clsStock ABook = new clsStock();
             String Error = "";
@@ -334,7 +334,7 @@ namespace Testing5
         //Testing Quantity Available Validity 
 
         [TestMethod]
-        public void QauntityAvailableMinLessOne()
+        public void QuantityAvailableMinLessOne()
         {
             clsStock ABook = new clsStock();
             String Error = "";
@@ -346,7 +346,7 @@ namespace Testing5
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void QauntityAvailableMin()
+        public void QuantityAvailableMin()
         {
             clsStock ABook = new clsStock();
             String Error = "";
@@ -357,7 +357,7 @@ namespace Testing5
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void QauntityAvailableMinPlusOne()
+        public void QuantityAvailableMinPlusOne()
         {
             clsStock ABook = new clsStock();
             String Error = "";
@@ -369,7 +369,7 @@ namespace Testing5
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void QauntityAvailableMaxLessOne()
+        public void QuantityAvailableMaxLessOne()
         {
             clsStock ABook = new clsStock();
             String Error = "";
@@ -381,7 +381,7 @@ namespace Testing5
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void QauntityAvailableMax()
+        public void QuantityAvailableMax()
         {
             clsStock ABook = new clsStock();
             String Error = "";
@@ -392,7 +392,7 @@ namespace Testing5
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void QauntityAvailableMaxPlusOne()
+        public void QuantityAvailableMaxPlusOne()
         {
             clsStock ABook = new clsStock();
             String Error = "";
@@ -404,7 +404,7 @@ namespace Testing5
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void QauntityAvailableMid()
+        public void QuantityAvailableMid()
         {
             clsStock ABook = new clsStock();
             String Error = "";

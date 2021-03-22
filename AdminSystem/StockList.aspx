@@ -10,7 +10,8 @@
     <form id="form1" runat="server">
         <div>
             <asp:ListBox ID="lstStockList" runat="server"></asp:ListBox>
-        </div>
+            <br />
+            <input id="btnAdd" type="button" value="Add" /></div>
     </form>
 </body>
 </html>
