@@ -90,5 +90,31 @@ namespace ClassLibrary
 
 
         }
+
+        public void Delete()
+        {
+            //declare the record pointed to by thisStock 
+            //connect to the database 
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure 
+            DB.AddParameter("@BookId", mThisStock.BookId);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblStock_Delete");
+        }
+
+        public void Update()
+        {
+
+            //update an existing record on the values of thiStock
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookDescription", mThisStock.Description);
+            DB.AddParameter("@DateAdded", mThisStock.DateAdded);
+            DB.AddParameter("@Price", mThisStock.Price);
+            DB.AddParameter("@QuantityAvailable", mThisStock.Quantity);
+            DB.AddParameter("@Available", mThisStock.Available);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblStock_Update");
+        }
     }
 }
