@@ -8,33 +8,67 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 BookId;
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of stock to be processed
+        BookId = Convert.ToInt32(Session["BookId"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record 
+            if (BookId != -1)
+            {
+                DisplayStock();
+            }
+        }
 
+        }
+
+    private void DisplayStock()
+    {
+        clsStockCollection Stock = new clsStockCollection();
+        Stock.ThisStock.Find(BookId);
+        txtBookId.Text = Stock.ThisStock.BookId.ToString();
+        txtBookDescription.Text = Stock.ThisStock.Description;
+        txtPrice.Text = Stock.ThisStock.Price.ToString();
+        txtQuantity.Text = Stock.ThisStock.Quantity.ToString();
+        chkAvailable.Checked = Stock.ThisStock.Available;
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
+        
         //create a new instance of clsStock
         clsStock ABook = new clsStock();
-        string BookId = txtBookId.Text;
         string BookDescription = txtBookDescription.Text;
         string Price = txtPrice.Text;
         string QuantityAvailable = txtQuantity.Text;
         string DateAdded = txtDateAdded.Text;
         string Error = "";
         Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
-        if(Error == "")
+        if (Error == "")
         {
-            ABook.Description = BookDescription;
             ABook.BookId = Convert.ToInt32(BookId);
+            ABook.Description = BookDescription;
             ABook.Price = Convert.ToDouble(Price);
             ABook.Quantity = Convert.ToInt32(QuantityAvailable);
             ABook.DateAdded = Convert.ToDateTime(DateAdded);
             ABook.Available = chkAvailable.Checked;
             clsStockCollection StockList = new clsStockCollection();
-            StockList.ThisStock = ABook;
-            StockList.Add();
+
+            if (BookId == -1)
+            {
+                //set the ThisStock property
+                StockList.ThisStock = ABook;
+                //add the new record 
+                StockList.Add();
+            }
+            else
+            {
+                StockList.ThisStock.Find(BookId);
+                StockList.ThisStock = ABook;
+                StockList.Update();
+            }
             Response.Redirect("StockList.aspx");
         }
         else
