@@ -13,27 +13,13 @@ namespace ClassLibrary
         //constructor for the class
         public clsStockCollection()
         {
-            //var for the index
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
+            //object for data connection
             clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure 
             DB.Execute("sproc_tblStock_SelectAll");
-            RecordCount = DB.Count;
-            while(Index < RecordCount)
-            {
-                clsStock ABook = new clsStock();
-
-                ABook.Available = Convert.ToBoolean(DB.DataTable.Rows[Index]["Available"]);
-                ABook.BookId = Convert.ToInt32(DB.DataTable.Rows[Index]["BookId"]);
-                ABook.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
-                ABook.Description = Convert.ToString(DB.DataTable.Rows[Index]["BookDescription"]);
-                ABook.Price = Convert.ToDouble(DB.DataTable.Rows[Index]["Price"]);
-                ABook.Quantity = Convert.ToInt32(DB.DataTable.Rows[Index]["QuantityAvailable"]);
-                //add the record to the private data member
-                mStockList.Add(ABook);
-                //pint at the next record 
-                Index++;
-            }
+            //populate the array list with the data table 
+            PopulateArray(DB);
+          
         }
 
         public List<clsStock> StockList
@@ -115,6 +101,49 @@ namespace ClassLibrary
             DB.AddParameter("@Available", mThisStock.Available);
             //execute the stored procedure 
             DB.Execute("sproc_tblStock_Update");
+        }
+
+        public void ReportByBookDescription(string BookDescription)
+        {
+            //filters the record based on a full or partial Book Descritpion
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the book description parameter to the database 
+            DB.AddParameter("@BookDescription", BookDescription);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblStock_FilterByBookDescription");
+            //populate the array list with the data table
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the data table in the parameter DB
+            //var for the index
+            Int32 Index = 0;
+            //var to store the record count
+            Int32 RecordCount;
+            //get the count of the records 
+            RecordCount = DB.Count;
+            //clear the private array list
+            mStockList = new List<clsStock>();
+            //while there are records to process 
+            while (Index <RecordCount)
+            {
+                //create a book item
+                clsStock ABook = new clsStock();
+                //read in the fields from the current record
+                ABook.Available = Convert.ToBoolean(DB.DataTable.Rows[Index]["Available"]);
+                ABook.BookId = Convert.ToInt32(DB.DataTable.Rows[Index]["BookId"]);
+                ABook.Description = Convert.ToString(DB.DataTable.Rows[Index]["BookDescription"]);
+                ABook.Quantity = Convert.ToInt32(DB.DataTable.Rows[Index]["QuantityAvailable"]);
+                ABook.Price = Convert.ToDouble(DB.DataTable.Rows[Index]["Price"]);
+                //add the records to the private data memeber 
+                mStockList.Add(ABook);
+                //point at the next record 
+                Index++;
+
+            }
         }
     }
 }
