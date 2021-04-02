@@ -16,9 +16,26 @@ namespace Testing1
         [TestMethod]
         public void InstanceOK()
         {
-            clsCustomer ACustomer = new clsCustomer();
-            Assert.IsNotNull(ACustomer);
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            Assert.IsNotNull(AllCustomers);
 
+        }
+
+        [TestMethod]
+        public void AddressListOK()
+        {
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            List<clsCustomer> TestList = new List<clsCustomer>();
+            clsCustomer TestItem = new clsCustomer();
+            TestItem.Active = true;
+            TestItem.CustomerId = 1;
+            TestItem.Email = "jk123@gmail.com";
+            TestItem.UserPassword = "JohnK123!";
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.Budget = 150.50m;
+            TestList.Add(TestItem);
+            AllCustomers.CustomerList = TestList;
+            Assert.AreEqual(AllAddresses.AddressList, TestList);
         }
 
         [TestMethod]
@@ -170,6 +187,7 @@ namespace Testing1
             }
             Assert.IsTrue(OK);
         }
+
         [TestMethod]
         public void TestDateAddedFound()
         {
