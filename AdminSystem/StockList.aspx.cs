@@ -18,11 +18,7 @@ public partial class _1_List : System.Web.UI.Page
          
     }
 
-    protected void btnAdd_CLick(object sender, EventArgs e)
-    {
-        Session["BookId"] = -1;
-        Response.Redirect("StockDataEntry.aspx");
-    }
+ 
     void DisplayStock()
         {
             clsStockCollection Stock = new clsStockCollection();
@@ -104,5 +100,11 @@ public partial class _1_List : System.Web.UI.Page
         //bind the data tot he list 
         lstStockList.DataBind();
  
+    }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        Session["BookId"] = -1;
+        Response.Redirect("StockDataEntry.aspx");
     }
 }
