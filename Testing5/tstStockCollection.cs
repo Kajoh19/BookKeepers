@@ -231,7 +231,7 @@ namespace Testing5
                 
                 }
                 //check that the first record is Id 36
-                if(FilteredStock.StockList[1].BookId != 36)
+                if(FilteredStock.StockList[1].BookId != 22)
                 {
                     OK = false;
                 }
