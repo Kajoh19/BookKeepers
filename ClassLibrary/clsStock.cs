@@ -126,26 +126,20 @@ namespace ClassLibrary
                     Error = Error + "The book description must be less than 100 characters";
                 }
 
-                //Date Added
-                try
-                {
-                    DateTemp = Convert.ToDateTime(dateAdded);
-                    if (DateTemp < DateTime.Now.Date)
-                    {
-                        Error = Error + "The date cannot be in the past : ";
-                    }
-                    if (DateTemp > DateTime.Now.Date)
-                    {
-                        Error = Error + "The date cannot be in the future : ";
-                    }
-                }
-                catch
-                {
-                    Error = Error + "The date was not a valid date : ";
-                }
+            //Price 
+            PriceTemp = Convert.ToDouble(price);
 
-                //Qaunitiy Available
-                QuantityTemp = Convert.ToInt32(quantityAvailable);
+            if (PriceTemp < 0.00)
+            {
+                Error = Error + "Item must have a cost : ";
+            }
+            if (PriceTemp > 1000.00)
+            {
+                Error = Error + "The price cannot exceed max value : ";
+            }
+
+            //Qaunitiy Available
+            QuantityTemp = Convert.ToInt32(quantityAvailable);
                 if (QuantityTemp < 0)
                 {
                     Error = Error + "The quanity can not be below 0 : ";
@@ -155,22 +149,27 @@ namespace ClassLibrary
                     Error = Error + "The quanity can not be above 2147483647 : ";
 
                 }
-                //Price 
+            
 
-
-                PriceTemp = Convert.ToDouble(price);
-
-                if (PriceTemp < 0.00)
+            //Date Added
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp < DateTime.Now.Date)
                 {
-                    Error = Error + "Item must have a cost : ";
+                    Error = Error + "The date cannot be in the past : ";
                 }
-                if (PriceTemp >= 1000.00)
+                if (DateTemp > DateTime.Now.Date)
                 {
-                    Error = Error + "The price cannot exceed max value : ";
+                    Error = Error + "The date cannot be in the future : ";
                 }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date : ";
+            }
 
-
-                return Error;
+            return Error;
             
         }
     }
