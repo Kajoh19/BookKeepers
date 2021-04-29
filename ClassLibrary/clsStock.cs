@@ -164,7 +164,7 @@ namespace ClassLibrary
                 {
                     Error = Error + "Item must have a cost : ";
                 }
-                if (PriceTemp >= 1000.00)
+                if (PriceTemp > 1000.00)
                 {
                     Error = Error + "The price cannot exceed max value : ";
                 }

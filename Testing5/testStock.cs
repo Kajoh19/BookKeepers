@@ -270,7 +270,7 @@ namespace Testing5
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-100);
-            string DataAdded = TestDate.ToString();
+            string DateAdded = TestDate.ToString();
             Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
@@ -282,7 +282,7 @@ namespace Testing5
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(-1);
-            string DataAdded = TestDate.ToString();
+            string DateAdded = TestDate.ToString();
             Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
@@ -293,7 +293,7 @@ namespace Testing5
             String Error = "";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            string DataAdded = TestDate.ToString();
+            string DateAdded = TestDate.ToString();
             Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
@@ -305,7 +305,7 @@ namespace Testing5
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(1);
-            string DataAdded = TestDate.ToString();
+            string DateAdded = TestDate.ToString();
             Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
@@ -317,7 +317,7 @@ namespace Testing5
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(100);
-            string DataAdded = TestDate.ToString();
+            string DateAdded = TestDate.ToString();
             Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
