@@ -13,16 +13,21 @@ namespace ClassLibrary
         private Double mPrice;
 
 
-        public string Description { get
+        public string Description
+        {
+            get
             {
                 return mBookDescription;
-            } set
+            }
+            set
             {
                 mBookDescription = value;
             }
         }
 
-        public bool Available { get
+        public bool Available
+        {
+            get
             {
                 return mAvailable;
             }
@@ -34,7 +39,9 @@ namespace ClassLibrary
 
         }
 
-        public DateTime DateAdded { get
+        public DateTime DateAdded
+        {
+            get
             {
                 return mDateAdded;
             }
@@ -45,7 +52,9 @@ namespace ClassLibrary
             }
         }
 
-        public int Quantity { get
+        public int Quantity
+        {
+            get
             {
                 return mQuantityAvailable;
             }
@@ -56,7 +65,9 @@ namespace ClassLibrary
             }
         }
 
-        public double Price { get
+        public Double Price
+        {
+            get
             {
                 return mPrice;
             }
@@ -64,9 +75,10 @@ namespace ClassLibrary
             {
                 mPrice = value;
             }
-            }
+        }
 
-        public int BookId {
+        public int BookId
+        {
             get
             {
                 return mBookId;
@@ -75,7 +87,7 @@ namespace ClassLibrary
             {
                 mBookId = value;
             }
-            }
+        }
 
         public bool Find(int BookId)
         {
@@ -99,72 +111,67 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string bookDescription, string dateAdded, string quantityAvailable, string price)
+        public string Valid(string bookDescription, string price, string quantityAvailable, string dateAdded)
         {
-            String Error = "";
-            DateTime DateTemp;
-            Int32 QuantityTemp;
-            Double PriceTemp;
-            if (bookDescription.Length == 0)
-            {
-                Error = Error + "The book decription may not be blank : ";
-            }
-            if (bookDescription.Length > 100)
-            {
-                Error = Error = "The book description must be less than 100 characters";
-            }
-
-            //Date Added
-            try
-            {
-                DateTemp = Convert.ToDateTime(dateAdded);
-                if (DateTemp < DateTime.Now.Date)
+                String Error = "";
+                DateTime DateTemp;
+                Int32 QuantityTemp;
+                Double PriceTemp;
+                if (bookDescription.Length == 0)
                 {
-                    Error = Error + "The date cannot be in the past : ";
+                    Error = Error + "The book decription may not be blank : ";
                 }
-                if (DateTemp > DateTime.Now.Date)
+                if (bookDescription.Length > 100)
                 {
-                    Error = Error + "The date cannot be in the future : ";
+                    Error = Error + "The book description must be less than 100 characters";
                 }
-            }
-            catch
-            {
-                Error = Error + "The date was not a valid date : ";
-            }
 
-            //Qaunitiy Available
-            QuantityTemp = Convert.ToInt32(quantityAvailable);
-            if (QuantityTemp < 0)
-            {
-                Error = Error + "The quanity can not be below 0 : ";
-            }
-            if (QuantityTemp > Int32.MaxValue)
-            {
-                Error = Error + "The quanity can not be above 2147483647 : ";
+                //Date Added
+                try
+                {
+                    DateTemp = Convert.ToDateTime(dateAdded);
+                    if (DateTemp < DateTime.Now.Date)
+                    {
+                        Error = Error + "The date cannot be in the past : ";
+                    }
+                    if (DateTemp > DateTime.Now.Date)
+                    {
+                        Error = Error + "The date cannot be in the future : ";
+                    }
+                }
+                catch
+                {
+                    Error = Error + "The date was not a valid date : ";
+                }
 
-            }
-            //Price 
+                //Qaunitiy Available
+                QuantityTemp = Convert.ToInt32(quantityAvailable);
+                if (QuantityTemp < 0)
+                {
+                    Error = Error + "The quanity can not be below 0 : ";
+                }
+                if (QuantityTemp > Int32.MaxValue)
+                {
+                    Error = Error + "The quanity can not be above 2147483647 : ";
 
-            try
-            {
+                }
+                //Price 
+
+
                 PriceTemp = Convert.ToDouble(price);
-                Double MaxValue = 1000.00;
+
                 if (PriceTemp < 0.00)
                 {
                     Error = Error + "Item must have a cost : ";
                 }
-                if (PriceTemp > MaxValue)
+                if (PriceTemp >= 1000.00)
                 {
                     Error = Error + "The price cannot exceed max value : ";
                 }
-            }
-            catch
-            {
 
-                Error = Error + "The price cannot exceed Double Max value : ";
-            }
-            return Error;
+
+                return Error;
+            
         }
-
     }
 }

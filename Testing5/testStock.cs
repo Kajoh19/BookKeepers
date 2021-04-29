@@ -11,7 +11,7 @@ namespace Testing5
         string DateAdded = DateTime.Now.Date.ToString();
         string QuantityAvailable = "22";
         string Price = "4.99";
-        Double MaxValue = 1000.00;
+        Double maxValue = 1000.00;
 
 
         [TestMethod]
@@ -184,7 +184,7 @@ namespace Testing5
         {
             clsStock ABook = new clsStock();
             String Error = "";
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         //Testing BookDescription Validity
@@ -194,7 +194,7 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "";
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -203,7 +203,7 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "a";
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -212,7 +212,7 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "aa";
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -221,7 +221,7 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -230,7 +230,7 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -239,7 +239,7 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -248,7 +248,7 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             string BookDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -258,55 +258,55 @@ namespace Testing5
             String Error = "";
             string BookDescription = "";
             BookDescription = BookDescription.PadRight(500, 'a');
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         //Testing Date Added Validity
         [TestMethod]
-        public void DateAdddedExtremeMin()
+        public void DateAddedExtremeMin()
         {
             clsStock ABook = new clsStock();
             String Error = "";
-            DateTime TestData;
-            TestData = DateTime.Now.Date;
-            TestData = TestData.AddYears(-100);
-            string DataAdded = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DataAdded, QuantityAvailable, Price);
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string DataAdded = TestDate.ToString();
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void DateAdddedminLessOne()
+        public void DateAddedminLessOne()
         {
             clsStock ABook = new clsStock();
             String Error = "";
-            DateTime TestData;
-            TestData = DateTime.Now.Date;
-            TestData = TestData.AddDays(-1);
-            string DataAdded = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DataAdded, QuantityAvailable, Price);
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-1);
+            string DataAdded = TestDate.ToString();
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void DateAdddedMin()
+        public void DateAddedMin()
         {
             clsStock ABook = new clsStock();
             String Error = "";
-            DateTime TestData;
-            TestData = DateTime.Now.Date;
-            string DataAdded = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DataAdded, QuantityAvailable, Price);
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string DataAdded = TestDate.ToString();
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void DateAdddedMinPlusOne()
+        public void DateAddedMinPlusOne()
         {
             clsStock ABook = new clsStock();
             String Error = "";
-            DateTime TestData;
-            TestData = DateTime.Now.Date;
-            TestData = TestData.AddDays(1);
-            string DataAdded = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DataAdded, QuantityAvailable, Price);
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string DataAdded = TestDate.ToString();
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -314,11 +314,11 @@ namespace Testing5
         {
             clsStock ABook = new clsStock();
             String Error = "";
-            DateTime TestData;
-            TestData = DateTime.Now.Date;
-            TestData = TestData.AddYears(100);
-            string DataAdded = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DataAdded, QuantityAvailable, Price);
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string DataAdded = TestDate.ToString();
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -327,7 +327,7 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             string DateAdded = "this is not a date!";
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -342,7 +342,7 @@ namespace Testing5
             TestData = 0;
             TestData = TestData - 1;
             string QuantityAvailable = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -353,7 +353,7 @@ namespace Testing5
             Int32 TestData;
             TestData = 0;
             string QuantityAvailable = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -365,7 +365,7 @@ namespace Testing5
             TestData = 0;
             TestData = TestData + 1;
             string QuantityAvailable = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -377,7 +377,7 @@ namespace Testing5
             TestData = 2147483647;
             TestData = TestData - 1;
             string QuantityAvailable = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -388,7 +388,7 @@ namespace Testing5
             Int32 TestData;
             TestData = 2147483647;
             string QuantityAvailable = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -400,7 +400,7 @@ namespace Testing5
             TestData = 2147483647;
             TestData = TestData + 1;
             string QuantityAvailable = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -411,7 +411,7 @@ namespace Testing5
             Int32 TestData;
             TestData = Convert.ToInt32(1073741823.5);
             string QuantityAvailable = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         //Test price validity
@@ -422,9 +422,9 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
-            TestData = 0.00 - 1;
+            TestData = 0.00 - 1.00;
             string Price = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -436,7 +436,7 @@ namespace Testing5
             Double TestData;
             TestData = 0.01;
             string Price = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -445,9 +445,9 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
-            TestData = 0.00 + 1;
+            TestData = 0.00 + 1.00;
             string Price = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -456,9 +456,9 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
-            TestData = MaxValue - 1;
+            TestData = maxValue - 1.00;
             string Price = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -467,9 +467,9 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
-            TestData = MaxValue;
+            TestData = maxValue;
             string Price = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -478,9 +478,9 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
-            TestData = MaxValue + 1;
+            TestData = maxValue + 1.00;
             string Price = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -489,19 +489,10 @@ namespace Testing5
             clsStock ABook = new clsStock();
             String Error = "";
             Double TestData;
-            TestData = MaxValue / 2;
+            TestData = maxValue / 2.00;
             string Price = TestData.ToString();
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
+            Error = ABook.Valid(BookDescription, Price, QuantityAvailable, DateAdded);
             Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void PriceInvalidData()
-        {
-            clsStock ABook = new clsStock();
-            String Error = "";
-            string Price = "this is not a price!";
-            Error = ABook.Valid(BookDescription, DateAdded, QuantityAvailable, Price);
-            Assert.AreNotEqual(Error, "");
         }
     }
 
