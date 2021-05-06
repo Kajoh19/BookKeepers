@@ -150,5 +150,32 @@ namespace ClassLibrary
             }
             return Error;
         }
+
+               
+       public bool Find(int SupplierId)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SupplierId", SupplierId);
+            DB.Execute("sproc_tblSupplier_FilterBySupplierId");
+
+            if (DB.Count == 1)
+            {
+                aSuppId = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierId"]);
+                aCost = Convert.ToDecimal(DB.DataTable.Rows[0]["Cost"]);
+                aSuppName = Convert.ToString(DB.DataTable.Rows[0]["SupplierName"]);
+                aPhone = Convert.ToInt32(DB.DataTable.Rows[0]["Phone"]);
+                aDate = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                aActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                aQuantity = Convert.ToInt64(DB.DataTable.Rows[0]["Quantity"]);
+
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
